@@ -11,12 +11,12 @@ const ChatMessageInput = ({ disabled, onSend }: Props) => {
   const textEl = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if(textEl.current) {
-      textEl.current.style.height = '0px';
+    if (textEl.current) {
+      textEl.current.style.height = "0px";
       let scrollHeight = textEl.current.scrollHeight;
-      textEl.current.style.height = scrollHeight + 'px';
+      textEl.current.style.height = scrollHeight + "px";
     }
-  }, [text, textEl])
+  }, [text, textEl]);
 
   const handleSendMessage = () => {
     if (!disabled && text.trim() !== "") {
@@ -26,11 +26,11 @@ const ChatMessageInput = ({ disabled, onSend }: Props) => {
   };
 
   const handleTextKeyUp = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-    if(event.code.toLowerCase() == 'enter' && !event.shiftKey) {
+    if (event.code.toLowerCase() === "enter" && !event.shiftKey) {
       event.preventDefault();
       handleSendMessage();
     }
-  }
+  };
 
   return (
     <div
@@ -40,6 +40,7 @@ const ChatMessageInput = ({ disabled, onSend }: Props) => {
     >
       <textarea
         ref={textEl}
+        name="input-text-area"
         className="flex-1 border-0 bg-transparent resize-none outline-none h-6 max-h-48 overflow-y-auto"
         placeholder="Type a message"
         value={text}
@@ -48,7 +49,12 @@ const ChatMessageInput = ({ disabled, onSend }: Props) => {
         disabled={disabled}
       ></textarea>
 
-      <div onClick={handleSendMessage} className={`self-end p-1 cursor-pointer rounded ${text.length > 0 ? 'opacity-100 hover:bg-black/20' : 'opacity-20'}`}>
+      <div
+        onClick={handleSendMessage}
+        className={`self-end p-1 cursor-pointer rounded ${
+          text.length ? "opacity-100 hover:bg-black/20" : "opacity-20"
+        }`}
+      >
         <IconSend width={14} height={14} />
       </div>
     </div>
