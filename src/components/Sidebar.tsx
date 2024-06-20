@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import IconClose from "./icons/IconClose";
 import IconAdd from "./icons/IconAdd";
-import SiderbarButton from "./SiderbarButton";
+import SidebarButton from "./SidebarButton";
 import IconTrash from "./icons/IconTrash";
 
 type Props = {
@@ -24,8 +24,8 @@ const Sidebar = ({ children, open, onClose, onClear, onNewChat }: Props) => {
           open ? "ml-0" : "-ml-96"
         }  md:ml-0`}
       >
-        <div onClick={onNewChat} className="flex flex-col w-64 p-2 bg-gray-900">
-          <div className="flex items-center p-3 rounded-md text-sm cursor-pointer border borger-white/20 hover:bg-gray-500/20">
+        <div className="flex flex-col w-64 p-2 bg-gray-900">
+          <div onClick={onNewChat} className="flex items-center p-3 rounded-md text-sm cursor-pointer border border-white/20 hover:bg-gray-500/20">
             <IconAdd width={16} height={16} className="mr-3" />
             Nova conversa
           </div>
@@ -33,7 +33,7 @@ const Sidebar = ({ children, open, onClose, onClear, onNewChat }: Props) => {
           <nav className="flex-1 pt-2 overflow-y-auto">{children}</nav>
 
           <div className="border-t border-gray-700 pt-2">
-            <SiderbarButton
+            <SidebarButton
               icon={<IconTrash width={16} height={16} />}
               label="Limpar todas as conversas"
               onClick={onClear}

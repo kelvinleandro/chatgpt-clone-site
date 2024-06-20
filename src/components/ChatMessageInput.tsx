@@ -13,7 +13,7 @@ const ChatMessageInput = ({ disabled, onSend }: Props) => {
   useEffect(() => {
     if (textEl.current) {
       textEl.current.style.height = "0px";
-      let scrollHeight = textEl.current.scrollHeight;
+      const scrollHeight = textEl.current.scrollHeight;
       textEl.current.style.height = scrollHeight + "px";
     }
   }, [text, textEl]);

@@ -32,13 +32,14 @@ const SidebarChatButton = ({
   };
 
   const handleConfirmButton = () => {
-    if (deleting) onDelete(chatItem.id);
+    if (deleting) {
+      onDelete(chatItem.id);
+    }
     if (editing && titleInput.trim() !== "") {
       onEdit(chatItem.id, titleInput.trim());
     }
 
-    setDeleting(false);
-    setEditing(false);
+    handleCancelButton(); // set deleting & editing to false
   };
 
   const handleCancelButton = () => {
@@ -63,6 +64,7 @@ const SidebarChatButton = ({
           <input
             name="edit-chat-title"
             className="w-full bg-transparent text-sm outline-none border border-blue-500"
+            type="text"
             value={titleInput}
             onChange={(e) => setTitleInput(e.target.value)}
           />

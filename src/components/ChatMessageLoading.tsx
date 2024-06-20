@@ -10,7 +10,6 @@ const ChatMessageLoading = () => {
         </div>
         <div className="flex-1 text-base whitespace-pre-wrap">
           <div className="w-2 h-4 bg-slate-300 animate-blink">
-
           </div>
         </div>
       </div>

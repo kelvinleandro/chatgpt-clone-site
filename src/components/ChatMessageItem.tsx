@@ -1,5 +1,4 @@
 import { ChatMessage } from "@/types/ChatMessage";
-import React from "react";
 import IconUser from "./icons/IconUser";
 import IconRobot from "./icons/IconRobot";
 

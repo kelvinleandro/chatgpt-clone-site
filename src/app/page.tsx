@@ -75,8 +75,8 @@ const Page = () => {
       setChatActiveId(newChatId);
     } else {
       // updating existing chat
-      let chatListClone = [...chatList];
-      let chatIndex = chatListClone.findIndex(
+      const chatListClone = [...chatList];
+      const chatIndex = chatListClone.findIndex(
         (item) => item.id === chatActiveId
       );
       chatListClone[chatIndex].messages.push({
@@ -93,16 +93,16 @@ const Page = () => {
   const handleSelectChat = (id: string) => {
     if (aiLoading) return;
 
-    let item = chatList.find((item) => item.id === id);
+    const item = chatList.find((item) => item.id === id);
     if (item) {
-      setChatActiveId(id);
+      setChatActiveId(item.id);
     }
     closeSidebar();
   };
 
   const handleDeleteChat = (id: string) => {
-    let chatListClone = [...chatList];
-    let chatIndex = chatListClone.findIndex((item) => item.id === id);
+    const chatListClone = [...chatList];
+    const chatIndex = chatListClone.findIndex((item) => item.id === id);
     chatListClone.splice(chatIndex, 1);
     setChatList(chatListClone);
     setChatActiveId("");
@@ -110,8 +110,8 @@ const Page = () => {
 
   const handleEditChat = (id: string, newTitle: string) => {
     if (newTitle) {
-      let chatListClone = [...chatList];
-      let chatIndex = chatListClone.findIndex((item) => item.id === id);
+      const chatListClone = [...chatList];
+      const chatIndex = chatListClone.findIndex((item) => item.id === id);
       chatListClone[chatIndex].title = newTitle;
       setChatList(chatListClone);
     }
